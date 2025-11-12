@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ankit Virdi | Embedded, Automotive & AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Portfolio of Ankit Virdi – Lead Electronics Engineer, Embedded Systems Architect, AI builder and musician (Dankitty)."
+  />
+  <style>
+    :root {
+      --bg: #05060a;
+      --bg-alt: #0c1018;
+      --fg: #f5f5f7;
+      --muted: #9ca3af;
+      --accent: #7c3aed;
+      --accent-soft: rgba(124, 58, 237, 0.16);
+      --border-subtle: rgba(148, 163, 184, 0.35);
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.7);
+      --radius-lg: 18px;
+      --radius-xl: 26px;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      --transition-fast: 150ms ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: radial-gradient(circle at top, #111827 0, #020617 40%, #000 100%);
+      color: var(--fg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px 18px 72px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 18px;
+      margin-bottom: 16px;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(
+        to right,
+        rgba(15, 23, 42, 0.9),
+        rgba(15, 23, 42, 0.7)
+      );
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      position: sticky;
+      top: 16px;
+      z-index: 20;
+    }
+
+    .logo-mark {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .logo-dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #f97316, #7c3aed);
+      box-shadow: 0 0 35px rgba(124, 58, 237, 0.8);
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      font-size: 14px;
+    }
+
+    nav a {
+      padding: 6px 11px;
+      border-radius: 999px;
+      color: var(--muted);
+      border: 1px solid transparent;
+      transition: background var(--transition-fast), color var(--transition-fast),
+        border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    nav a:hover {
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--fg);
+      border-color: rgba(148, 163, 184, 0.6);
+      transform: translateY(-1px);
+    }
+
+    .nav-cta {
+      background: var(--accent-soft);
+      border-color: rgba(129, 140, 248, 0.7);
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .nav-cta:hover {
+      background: rgba(124, 58, 237, 0.28);
+      border-color: #a855f7;
+    }
+
+    /* Layout sections */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(260px, 2.4fr);
+      gap: 32px;
+      margin-top: 40px;
+      margin-bottom: 40px;
+      align-items: center;
+    }
+
+    @media (max-width: 860px) {
+      header {
+        border-radius: 16px;
+      }
+      nav {
+        display: none;
+      }
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-text {
+      padding-right: 12px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px 4px 4px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 14px;
+    }
+
+    .eyebrow-pill {
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #22c55e, #0ea5e9);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 600;
+      color: #020617;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 3.4vw + 1.2rem, 3.4rem);
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+      margin-bottom: 14px;
+    }
+
+    h1 span.accent {
+      background: linear-gradient(120deg, #a855f7, #f97316, #22c55e);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 22px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 26px;
+    }
+
+    .tag {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      font-size: 12px;
+      color: #e5e7eb;
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-size: 14px;
+      border: 1px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      background: transparent;
+      color: var(--fg);
+      transition: background var(--transition-fast), border-color var(--transition-fast),
+        transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .btn-primary {
+      background: radial-gradient(circle at 0 0, #22c55e, #7c3aed);
+      box-shadow: 0 20px 40px rgba(88, 28, 135, 0.7);
+      border-color: rgba(191, 219, 254, 0.5);
+      font-weight: 500;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 24px 55px rgba(88, 28, 135, 0.9);
+    }
+
+    .btn-ghost {
+      border-color: rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--muted);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 0.95);
+      transform: translateY(-1px);
+    }
+
+    .hero-note {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, #1f2937, #020617);
+      border-radius: var(--radius-xl);
+      padding: 20px 20px 18px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .pill-label {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1.2fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .stat-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      padding: 12px 12px 11px;
+      background: rgba(15, 23, 42, 0.9);
+      font-size: 12px;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .stat-value {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+
+    .stat-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .pill {
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 11px;
+      color: #e5e7eb;
+    }
+
+    .projects-mini {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      padding: 10px 10px 9px;
+      background: radial-gradient(circle at top, #0f172a, #020617);
+      display: grid;
+      gap: 6px;
+      font-size: 11px;
+    }
+
+    .proj-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: baseline;
+    }
+
+    .proj-name {
+      font-weight: 500;
+      color: #e5e7eb;
+    }
+
+    .proj-tag {
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .badge-strip {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .glow-orbit {
+      position: absolute;
+      inset: -70px;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(244, 63, 94, 0.22), transparent 55%),
+        radial-gradient(circle at 80% 0%, rgba(56, 189, 248, 0.27), transparent 55%),
+        radial-gradient(circle at 50% 100%, rgba(129, 140, 248, 0.3), transparent 60%);
+      opacity: 0.8;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    /* Sections */
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #9ca3af;
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--muted);
+      max-width: 420px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    @media (max-width: 780px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-alt);
+      padding: 16px 15px;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.75);
+    }
+
+    .card h3 {
+      font-size: 16px;
+      margin-bottom: 6px;
+      letter-spacing: -0.02em;
+    }
+
+    .card p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .chip {
+      font-size: 11px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: #e5e7eb;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 10px;
+      font-size: 13px;
+    }
+
+    .timeline-item {
+      padding: 10px 11px;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .timeline-item-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 3px;
+    }
+
+    .timeline-role {
+      font-weight: 500;
+      font-size: 13px;
+    }
+
+    .timeline-meta {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .timeline-body {
+      color: var(--muted);
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .bullet-list li::before {
+      content: "•";
+      color: #a855f7;
+      display: inline-block;
+      margin-right: 7px;
+      font-size: 11px;
+    }
+
+    .bullet-list li {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 3px;
+    }
+
+    .project-list {
+      display: grid;
+      gap: 10px;
+      font-size: 13px;
+    }
+
+    .project-item {
+      padding: 10px 11px;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      background: linear-gradient(135deg, #020617, #020617 45%, #0b1120 100%);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+
+    .project-name {
+      font-weight: 500;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .project-tag {
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 10px;
+      font-size: 13px;
+    }
+
+    .skill-card {
+      border-radius: 12px;
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+      padding: 9px 10px;
+    }
+
+    .skill-card h4 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #9ca3af;
+      margin-bottom: 4px;
+    }
+
+    .skill-card p {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .music-banner {
+      border-radius: var(--radius-lg);
+      padding: 14px 14px 13px;
+      border: 1px solid rgba(248, 250, 252, 0.18);
+      background: radial-gradient(circle at 0 0, rgba(124, 58, 237, 0.2), transparent 60%),
+        radial-gradient(circle at 100% 100%, rgba(248, 250, 252, 0.15), transparent 55%),
+        rgba(15, 23, 42, 0.96);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 620px) {
+      .music-banner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    .music-title {
+      font-weight: 500;
+      margin-bottom: 3px;
+    }
+
+    footer {
+      border-top: 1px solid rgba(148, 163, 184, 0.4);
+      margin-top: 40px;
+      padding-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+    }
+
+    /* Scroll behavior */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Tiny hover on links */
+    a:hover {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <div class="logo-mark">
+        <div class="logo-dot"></div>
+        <span>ANKIT&nbsp;VIRDI</span>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#projects">Projects</a>
+        <a href="#music">Music</a>
+        <a href="#contact" class="nav-cta">Contact</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <main>
+      <section class="hero" id="top">
+        <div class="hero-text">
+          <div class="eyebrow">
+            <span class="eyebrow-pill">Building things end-to-end</span>
+            <span>Automotive • Embedded • AI • Music</span>
+          </div>
+
+          <h1>
+            Embedded, automotive &amp; AI builder,
+            <span class="accent">shipping real systems</span>.
+          </h1>
+
+          <p class="hero-subtitle">
+            I’m Ankit, a Lead Electronics Engineer in Coventry, UK. I design and ship automotive ECUs,
+            smart energy systems, and AI-powered products — from PCB and firmware up to cloud, apps, and
+            agents. On the side, I write music as <strong>Dankitty</strong>.
+          </p>
+
+          <div class="hero-tags">
+            <span class="tag">Lead Electronics @ JLR</span>
+            <span class="tag">Consultant @ Planclabs</span>
+            <span class="tag">Dopami ADHD Engine</span>
+            <span class="tag">C / C++ / Python / Swift</span>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">
+              <span>Let’s work together</span>
+              <span>→</span>
+            </a>
+            <a
+              href="https://github.com/ankitvirdi4"
+              target="_blank"
+              rel="noreferrer"
+              class="btn btn-ghost"
+            >
+              <span>View my GitHub</span>
+            </a>
+          </div>
+
+          <p class="hero-note">
+            Currently: building Dopami (ADHD companion), Cognis CAN platform &amp; smart EMS systems.
+          </p>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-card">
+            <div class="glow-orbit"></div>
+            <div class="hero-card-header">
+              <span>Snapshot</span>
+              <span class="pill-label">Coventry • Remote-friendly</span>
+            </div>
+            <div class="hero-grid">
+              <div class="stat-card">
+                <div class="stat-label">Core focus</div>
+                <div class="stat-value">Automotive ECUs</div>
+                <div class="stat-pill-row">
+                  <span class="pill">LED Lighting</span>
+                  <span class="pill">JLR Platform</span>
+                  <span class="pill">CAN / LIN / DoIP</span>
+                </div>
+              </div>
+
+              <div class="projects-mini">
+                <div class="proj-row">
+                  <div class="proj-name">Dopami</div>
+                  <div class="proj-tag">AI ADHD Engine</div>
+                </div>
+                <div class="proj-row">
+                  <div class="proj-name">Cognis</div>
+                  <div class="proj-tag">CAN Analyzer</div>
+                </div>
+                <div class="proj-row">
+                  <div class="proj-name">Smart EMS</div>
+                  <div class="proj-tag">Energy + IoT</div>
+                </div>
+              </div>
+            </div>
+            <div class="badge-strip">
+              <span>STM32 • Teensy • ESP32</span>
+              <span> | </span>
+              <span>AWS IoT • MQTT • OTA</span>
+              <span> | </span>
+              <span>LLMs • Agents • RAG</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT / WORK -->
+      <section id="about">
+        <div class="section-header">
+          <div class="section-title">About</div>
+          <p class="section-subtitle">
+            A weird mix of automotive engineer, embedded systems architect, AI builder and musician.
+            I like shipping real things that survive the field, not just slides.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>What I do</h3>
+            <p>
+              I work across the full stack of electronics: requirements → architecture → schematics →
+              firmware → test &amp; validation → field learning. More recently, I’ve been combining this
+              with modern AI to build agents that actually do work for people.
+            </p>
+            <ul class="bullet-list">
+              <li>Develop automotive ECUs (lighting, zonal controllers) in line with OEM processes.</li>
+              <li>Design and debug embedded systems on STM32, Teensy, ESP32 and friends.</li>
+              <li>Ship IoT devices talking securely to AWS IoT via MQTT over LTE/BLE.</li>
+              <li>Build AI-first tools — Dopami, Ironheart Daily, and other agentic systems.</li>
+            </ul>
+            <div class="chip-row" style="margin-top: 8px;">
+              <span class="chip">Embedded C / C++</span>
+              <span class="chip">Python</span>
+              <span class="chip">Swift &amp; Kotlin</span>
+              <span class="chip">AWS IoT &amp; Cloud</span>
+            </div>
+          </div>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-item-header">
+                <div>
+                  <div class="timeline-role">Lead Electronics Engineer</div>
+                  <div class="timeline-meta">Jaguar Land Rover • Exterior Lighting</div>
+                </div>
+                <div class="timeline-meta">UK</div>
+              </div>
+              <div class="timeline-body">
+                Shipping lighting ECUs and software for latest JLR vehicles — including ADB, complex
+                animations, and diagnostics.
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-item-header">
+                <div>
+                  <div class="timeline-role">Consultant / Founder</div>
+                  <div class="timeline-meta">Planclabs Technologies • PDSL</div>
+                </div>
+                <div class="timeline-meta">Global</div>
+              </div>
+              <div class="timeline-body">
+                Consulting on automotive electronics, solar/EMS, and IoT systems for Indian, US and EU clients.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects">
+        <div class="section-header">
+          <div class="section-title">Selected Projects</div>
+          <p class="section-subtitle">
+            A mix of automotive, IoT, and AI-first products I’m actively building or have shipped.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Hardware, Embedded &amp; IoT</h3>
+            <div class="project-list">
+              <div class="project-item">
+                <div class="project-header">
+                  <div class="project-name">ZEBrA – South Zone Controller Emulator</div>
+                  <div class="project-tags">
+                    <span class="project-tag">Rivian</span>
+                    <span class="project-tag">PDSL</span>
+                  </div>
+                </div>
+                <p>
+                  Emulator hardware for Rivian’s MSP platform — CAN, power distribution, connectors,
+                  rugged enclosure, and test automation hooks.
+                </p>
+              </div>
+
+              <div class="project-item">
+                <div class="project-header">
+                  <div class="project-name">Smart Energy Management System</div>
+                  <div class="project-tags">
+                    <span class="project-tag">IoT</span>
+                    <span class="project-tag">PV &amp; Battery</span>
+                  </div>
+                </div>
+                <p>
+                  Modular 5–20 kWh EMS with hybrid inverter, OTA firmware updates, PV forecasting,
+                  immersion heater integration &amp; ML-based optimisation.
+                </p>
+              </div>
+
+              <div class="project-item">
+                <div class="project-header">
+                  <div class="project-name">Cognis – CAN Analyzer Platform</div>
+                  <div class="project-tags">
+                    <span class="project-tag">Teensy</span>
+                    <span class="project-tag">WPF</span>
+                  </div>
+                </div>
+                <p>
+                  CAN/CAN-FD logger and analyzer with Windows app, scripting, replay, and standalone
+                  automation modes for lab &amp; field use.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>AI, Software &amp; Tools</h3>
+            <div class="project-list">
+              <div class="project-item">
+                <div class="project-header">
+                  <div class="project-name">Dopami – ADHD Companion Engine</div>
+                  <div class="project-tags">
+                    <span class="project-tag">LLMs</span>
+                    <span class="project-tag">Agents</span>
+                  </div>
+                </div>
+                <p>
+                  Microservice-based AI coach that chunks tasks, sets timers, and helps neurodivergent
+                  users execute without friction.
+                </p>
+              </div>
+
+              <div class="project-item">
+                <div class="project-header">
+                  <div class="project-name">Ironheart Daily – Automated YouTube</div>
+                  <div class="project-tags">
+                    <span class="project-tag">Automation</span>
+                    <span class="project-tag">Content</span>
+                  </div>
+                </div>
+                <p>
+                  End-to-end pipeline for daily motivational videos: script, voice, visuals and upload
+                  with minimal human input.
+                </p>
+              </div>
+
+              <div class="project-item">
+                <div class="project-header">
+                  <div class="project-name">Bouki – Loyalty &amp; Rewards Platform</div>
+                  <div class="project-tags">
+                    <span class="project-tag">Fintech</span>
+                    <span class="project-tag">CTO (Past)</span>
+                  </div>
+                </div>
+                <p>
+                  UAE-based loyalty platform. Designed backend, architecture and integration strategy
+                  as founding CTO.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS & MUSIC -->
+      <section id="work">
+        <div class="section-header">
+          <div class="section-title">Stack &amp; Skills</div>
+          <p class="section-subtitle">
+            I work comfortably across hardware, firmware, cloud and app layers — and I’m happiest when
+            all of them talk to each other cleanly.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h4>Embedded &amp; ECUs</h4>
+            <p>STM32, Teensy, ESP32, AUTOSAR, bare-metal, bootloaders, fault handling, DFMEA-aware design.</p>
+          </div>
+          <div class="skill-card">
+            <h4>Connectivity</h4>
+            <p>CAN/CAN-FD, LIN, DoIP, MQTT over LTE, BLE, AWS IoT Core, secure provisioning and OTA.</p>
+          </div>
+          <div class="skill-card">
+            <h4>Software</h4>
+            <p>Embedded C/C++, Python, Swift, Kotlin, Node.js, React/React Native, .NET/WPF.</p>
+          </div>
+          <div class="skill-card">
+            <h4>AI &amp; Automation</h4>
+            <p>LLMs, RAG, agent design, prompt engineering, backend automation, developer tools.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="music">
+        <div class="section-header">
+          <div class="section-title">Music</div>
+          <p class="section-subtitle">
+            I release music as <strong>Dankitty</strong> — shoegaze, dream pop &amp; ambient electronic
+            vibes. Think Men I Trust meets Tame Impala with Hindi vocals.
+          </p>
+        </div>
+
+        <div class="music-banner">
+          <div>
+            <div class="music-title">Dankitty – guitar, bass &amp; synths</div>
+            <p>
+              Writing and producing tracks in Ableton Live with lush guitar layers, bass grooves and
+              atmospheric synth work.
+            </p>
+          </div>
+          <div class="chip-row">
+            <span class="chip">Ableton Live + Push 2</span>
+            <span class="chip">Shoegaze / Dream Pop</span>
+            <span class="chip">Bass &amp; Guitar</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <div class="section-header">
+          <div class="section-title">Contact</div>
+          <p class="section-subtitle">
+            Open to consulting, interesting embedded/AI projects, and collaborations in music or tech.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Let’s talk</h3>
+          <p>
+            The fastest way to reach me is email, but I also live on GitHub and LinkedIn a fair bit.
+          </p>
+          <div class="chip-row" style="margin-top: 10px;">
+            <a href="mailto:ankitvirdi4@gmail.com" class="chip">ankitvirdi4@gmail.com</a>
+            <a
+              href="https://github.com/ankitvirdi4"
+              target="_blank"
+              rel="noreferrer"
+              class="chip"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://www.linkedin.com/in/ankitvirdi"
+              target="_blank"
+              rel="noreferrer"
+              class="chip"
+            >
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Ankit Virdi</div>
+      <div class="footer-links">
+        <a href="#top">Back to top</a>
+        <a href="https://github.com/ankitvirdi4" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
